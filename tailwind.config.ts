@@ -64,6 +64,15 @@ const config: Config = {
         sans: ["var(--font-sans)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
         display: ["var(--font-display)", "system-ui", "-apple-system", "sans-serif"],
       },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translate3d(0, 0, 0)" },
+          "100%": { transform: "translate3d(-50%, 0, 0)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 25s linear infinite",
+      },
     },
   },
   plugins: [],

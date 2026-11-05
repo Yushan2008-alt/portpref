@@ -1,10 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useTheme } from "next-themes";
 import {
-  Sun,
-  Moon,
   Sparkles,
   ArrowDown,
   Menu,
@@ -15,7 +12,6 @@ import {
   ExternalLink,
   Code2,
   Terminal,
-  Laptop,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -31,101 +27,45 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Navbar } from "@/components/navbar";
+import { HeroSection } from "@/components/hero-section";
 
 export default function Home() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
-
   // Interactive Form Controls State
   const [inputVal, setInputVal] = React.useState("Jane Developer");
   const [textareaVal, setTextareaVal] = React.useState(
     "Architecting minimalist, high-performance web applications with Next.js 14."
   );
 
-  // Hydration guard for theme switcher
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
-
   return (
     <main className="min-h-screen bg-background text-foreground transition-colors duration-300">
-      {/* Top Navigation & Live Theme Switcher */}
-      <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold font-display text-sm">
-              DS
-            </div>
-            <div>
-              <span className="font-display font-bold tracking-tight text-sm sm:text-base">
-                UI Atoms System
-              </span>
-              <span className="hidden sm:inline-block ml-2 text-xs text-muted-foreground">
-                Phase 1 Showcase
-              </span>
-            </div>
-          </div>
+      {/* Sticky Navbar (Phase 2) */}
+      <Navbar />
 
-          <div className="flex items-center gap-3">
-            {/* Pulsing Availability Beacon */}
-            <Badge variant="beacon" className="hidden sm:inline-flex">
-              Available for Projects
-            </Badge>
+      {/* Dynamic Hero Section (Phase 2) */}
+      <HeroSection />
 
-            {/* Live Theme Toggle */}
-            <Button
-              variant="pill-soft"
-              size="sm"
-              onClick={toggleTheme}
-              className="gap-2 text-xs"
-              aria-label="Toggle color theme"
-            >
-              {mounted ? (
-                theme === "dark" ? (
-                  <>
-                    <Sun className="h-3.5 w-3.5 text-amber-400" />
-                    <span>Light Mode</span>
-                  </>
-                ) : (
-                  <>
-                    <Moon className="h-3.5 w-3.5 text-indigo-500" />
-                    <span>Dark Mode</span>
-                  </>
-                )
-              ) : (
-                <>
-                  <Laptop className="h-3.5 w-3.5" />
-                  <span>Theme</span>
-                </>
-              )}
-            </Button>
-          </div>
-        </div>
-      </header>
+      {/* Main Interactive Showcase Section */}
+      <section id="showcase" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-16">
+        <div id="works" className="sr-only" aria-hidden="true" />
 
-      {/* Main Showcase Container */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-16">
         {/* Hero Introduction */}
-        <section className="space-y-4 max-w-3xl">
+        <div className="space-y-4 max-w-3xl">
           <Badge variant="default" className="gap-1.5">
             <Sparkles className="h-3 w-3" />
-            <span>Phase 1 Verified Foundation</span>
+            <span>Phase 1 &amp; Phase 2 Verified Foundation</span>
           </Badge>
-          <h1 className="text-4xl sm:text-5xl font-bold font-display tracking-tight text-foreground">
-            Interactive Design System & UI Atoms Foundation
-          </h1>
+          <h2 className="text-3xl sm:text-4xl font-bold font-display tracking-tight text-foreground">
+            Interactive Design System &amp; UI Atoms Foundation
+          </h2>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
             Minimalist editorial and neo-brutalist Light Canvas design system. Engineered strictly with
             Next.js 14, React 18, Tailwind CSS tokens, and zero-bloat Ponytail architecture.
           </p>
-        </section>
+        </div>
 
         {/* SECTION 1: BUTTON MATRIX */}
-        <section className="space-y-6">
+        <section id="about" className="space-y-6">
           <div className="border-b border-border pb-3">
             <h2 className="text-2xl font-bold font-display tracking-tight text-foreground">
               1. Button Component Matrix
@@ -261,7 +201,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 2: BADGE MATRIX */}
-        <section className="space-y-6">
+        <section id="stack" className="space-y-6">
           <div className="border-b border-border pb-3">
             <h2 className="text-2xl font-bold font-display tracking-tight text-foreground">
               2. Badge Component Matrix
@@ -346,7 +286,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 3: FORM CONTROLS */}
-        <section className="space-y-6">
+        <section id="services" className="space-y-6">
           <div className="border-b border-border pb-3">
             <h2 className="text-2xl font-bold font-display tracking-tight text-foreground">
               3. Minimalist Form Controls
@@ -419,7 +359,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 4: MODAL DIALOG */}
-        <section className="space-y-6">
+        <section id="contact" className="space-y-6">
           <div className="border-b border-border pb-3">
             <h2 className="text-2xl font-bold font-display tracking-tight text-foreground">
               4. Modal Dialog Component
@@ -508,7 +448,7 @@ export default function Home() {
             implemented with type-safe props and active styles. Default theme set to Light mode in root layout.
           </p>
         </section>
-      </div>
+      </section>
     </main>
   );
 }
