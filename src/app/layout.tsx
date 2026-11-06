@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fontSans.variable} ${fontDisplay.variable}`}
+      className={`${fontSans.variable} ${fontDisplay.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary">

@@ -29,6 +29,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Navbar } from "@/components/navbar";
 import { HeroSection } from "@/components/hero-section";
+import { BentoGrid } from "@/components/bento-grid";
 
 export default function Home() {
   // Interactive Form Controls State
@@ -45,6 +46,13 @@ export default function Home() {
       {/* Dynamic Hero Section (Phase 2) */}
       <HeroSection />
 
+      {/* Bento Grid Capabilities & Architecture Showcase (Phase 3) */}
+      <section id="about" className="scroll-mt-20">
+        <div id="services" className="scroll-mt-24" />
+        <div id="stack" className="scroll-mt-24" />
+        <BentoGrid />
+      </section>
+
       {/* Main Interactive Showcase Section */}
       <section id="showcase" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-16">
         <div id="works" className="sr-only" aria-hidden="true" />
@@ -53,10 +61,10 @@ export default function Home() {
         <div className="space-y-4 max-w-3xl">
           <Badge variant="default" className="gap-1.5">
             <Sparkles className="h-3 w-3" />
-            <span>Phase 1 &amp; Phase 2 Verified Foundation</span>
+            <span>Phase 1 Baseline Reference</span>
           </Badge>
           <h2 className="text-3xl sm:text-4xl font-bold font-display tracking-tight text-foreground">
-            Interactive Design System &amp; UI Atoms Foundation
+            Design System &amp; UI Atoms Reference (Phase 1 Baseline)
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
             Minimalist editorial and neo-brutalist Light Canvas design system. Engineered strictly with
@@ -65,7 +73,7 @@ export default function Home() {
         </div>
 
         {/* SECTION 1: BUTTON MATRIX */}
-        <section id="about" className="space-y-6">
+        <section id="atoms-buttons" className="space-y-6">
           <div className="border-b border-border pb-3">
             <h2 className="text-2xl font-bold font-display tracking-tight text-foreground">
               1. Button Component Matrix
@@ -201,7 +209,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 2: BADGE MATRIX */}
-        <section id="stack" className="space-y-6">
+        <section id="atoms-badges" className="space-y-6">
           <div className="border-b border-border pb-3">
             <h2 className="text-2xl font-bold font-display tracking-tight text-foreground">
               2. Badge Component Matrix
@@ -286,7 +294,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 3: FORM CONTROLS */}
-        <section id="services" className="space-y-6">
+        <section id="atoms-forms" className="space-y-6">
           <div className="border-b border-border pb-3">
             <h2 className="text-2xl font-bold font-display tracking-tight text-foreground">
               3. Minimalist Form Controls
